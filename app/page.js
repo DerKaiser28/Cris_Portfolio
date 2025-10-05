@@ -1,103 +1,136 @@
-import Image from "next/image";
+"use client";
+import { useEffect, useRef, useState } from "react";
+import { Pacifico } from "next/font/google";
+import { useRouter } from "next/navigation";
+import SocialBox from "@/components/SocialBox";
 
-export default function Home() {
+const PacificoFont = Pacifico({
+  subsets: ["latin"],
+  variable: "--font-pacifico",
+  display: "swap",
+  weight: "400",
+});
+
+export default function ExperienceSelector() {
+  const tiles = [
+    { key: "professional", label: "Professional", src: "./pro.JPG", objectPosition: "center 21%", url: "/portfolio/professional/about" },
+    { key: "personal", label: "Personal", src: "./per.jpg", objectPosition: "center 20%", url: "/portfolio/personal/about" },
+  ];
+
+  const router = useRouter();
+
+  const refs = useRef([]);
+  const [activeIdx, setActiveIdx] = useState(null);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mm = window.matchMedia("(min-width: 768px)");
+    const onMM = () => setIsDesktop(mm.matches);
+    onMM();
+    mm.addEventListener?.("change", onMM);
+
+    const updateActive = () => {
+      if (mm.matches) {
+        // Desktop: hover handles color; clear mobile state
+        setActiveIdx(null);
+        return;
+      }
+      // Find which card center is closest to viewport center
+      const vhCenter = window.innerHeight / 2;
+      let best = 0;
+      let bestDist = Infinity;
+
+      refs.current.forEach((el, i) => {
+        if (!el) return;
+        const r = el.getBoundingClientRect();
+        const center = r.top + r.height / 2;
+        const d = Math.abs(center - vhCenter);
+        if (d < bestDist) {
+          bestDist = d;
+          best = i;
+        }
+      });
+      setActiveIdx(best);
+    };
+
+    // Run now and on scroll/resize
+    updateActive();
+    const opts = { passive: true };
+    window.addEventListener("scroll", updateActive, opts);
+    window.addEventListener("resize", updateActive, opts);
+
+    return () => {
+      window.removeEventListener("scroll", updateActive);
+      window.removeEventListener("resize", updateActive);
+      mm.removeEventListener?.("change", onMM);
+    };
+  }, []);
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <section className="h-auto md:h-screen w-full p-16 max-md:p-4">
+      {/* Heading */}
+      <div className="flex justify-center">
+         <SocialBox></SocialBox>
+      </div>
+     
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      <p className={`mb-6 md:mb-10 text-center text-4xl md:text-6xl font-bold ${PacificoFont.className}`}>
+        Hi I'm Cris Grace!
+      </p>
+      <p className={`mb-6 md:mb-10 text-center text-2xl md:text-4xl font-bold ${PacificoFont.className}`}>
+       Discover My Sides
+      </p>
+
+      {/* Write-up */}
+      <p className="block mx-auto my-6 md:my-2 max-w-2xl text-center text-sm text-zinc-400">
+        I designed this portfolio with two distinct modes. <b>Personal</b> gives you a glimpse
+        into my story, interests, and creative side it’s a more relaxed way to get to know me.  
+        <b>Professional</b> is focused on my work, projects, and skills, tailored for recruiters, 
+        collaborators, and anyone interested in what I can build. Choose the mode that best fits 
+        what you’re looking for I wanted to make it easy for you to explore both sides of me.
+      </p>
+
+      {/* Cards */}
+      <div className="grid h-[calc(100%-8rem)] grid-cols-1 md:justify-items-center gap-8 md:grid-cols-2 p-16 max-md:p-0">
+        {tiles.map(({ key, label, src, objectPosition, url }, i) => (
+          <div
+            key={key}
+            ref={(el) => (refs.current[i] = el)}
+            className="group relative w-full h-full md:w-3/4 overflow-hidden rounded-2xl cursor-pointer shadow-lg
+                       md:h-3/4 max-md:aspect-square
+                       md:first:justify-self-end md:last:justify-self-start"
+             onClick={() => router.push(url)}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+            {/* Image */}
+            <img
+              src={src}
+              alt={label}
+              style={{ objectPosition }}
+              className={`h-full w-full object-cover transform transition duration-300 ease-out
+                          filter grayscale
+                          ${!isDesktop && activeIdx === i ? "grayscale-0" : ""}
+                          md:grayscale md:group-hover:grayscale-0
+                          md:group-hover:scale-105`}
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+            {/* Overlay gradient */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent 
+                            transition duration-300 group-hover:from-black/40 group-hover:via-black/10" />
+
+            {/* Label */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span
+                className="px-6 py-3 rounded-full text-white text-lg font-semibold tracking-wide
+                           backdrop-blur-sm bg-white/20 shadow-md
+                           transform transition duration-300
+                           md:group-hover:scale-110 md:group-hover:bg-white/30 md:group-hover:shadow-lg"
+              >
+                {label}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }

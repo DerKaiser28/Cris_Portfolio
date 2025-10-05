@@ -24,3 +24,49 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes gradient-x {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient-x {
+  background-size: 400% 400%; /* wider spread */
+  animation: gradient-x 8s linear infinite; /* slower + smoother */
+}
+
+@keyframes reveal-down {
+  from { clip-path: inset(0 0 100% 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+@keyframes reveal-up {
+  from { clip-path: inset(0 0 0 0); }
+  to   { clip-path: inset(0 0 100% 0); }
+}
+.animate-reveal-down { animation: reveal-down 280ms cubic-bezier(.2,.7,.2,1) both; }
+.animate-reveal-up   { animation: reveal-up   220ms cubic-bezier(.4,.0,.2,1) both; }
+
+html, body { background: #000; }
+
+/* Slide animations for switching personal ↔ professional */
+@keyframes slideOutLeft {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes slideOutRight {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(100%); }
+}
+
+body.slide-left > main {
+  animation: slideOutLeft 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+body.slide-right > main {
+  animation: slideOutRight 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
