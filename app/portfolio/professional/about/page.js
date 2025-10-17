@@ -2,7 +2,7 @@
 import Image from "next/image";
 
 export const metadata = {
-  title: "About Me — Professional | Cris Grace",
+  title: "About Me | Cris Grace",
   description:
     "Full-stack + ML engineer focused on pragmatic, production-grade systems.",
 };
@@ -19,15 +19,13 @@ export default function ProfessionalAbout() {
         <div className="grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-8 md:gap-12 items-center">
           <div>
             <h1 className="text-4xl md:text-5xl font-semibold tracking-tight">
-              Hello I’m{" "}
+              Hello, I’m{" "}
               <span className="bg-gradient-to-r from-teal-300 via-cyan-300 to-sky-400 bg-clip-text text-transparent">
                 Cris Grace
               </span>
             </h1>
             <p className="mt-4 text-lg text-zinc-300/95 leading-relaxed">
-              Full-stack developer building ML-enabled products and cloud-native systems.
-              I like problems where software meets the real world: computer vision in agriculture,
-              large-scale event ops, and shipping apps that people actually use.
+              I build things that connect ideas to reality, systems that learn, adapt, and scale without losing their soul. My work spans cloud platforms, ML pipelines, and full-stack apps, but the goal stays the same: make technology feel human and grounded in purpose.
             </p>
 
             {/* Quick links row */}
@@ -42,12 +40,12 @@ export default function ProfessionalAbout() {
           {/* Hero image with accent ring + glow */}
           <div className="relative aspect-[4/3] overflow-hidden rounded-2xl ring-2 ring-cyan-500/40 shadow-[0_0_40px_-10px_rgba(56,189,248,0.45)]">
             <Image
-              src="/professional.jpg" // swap to your image
-              alt="Cris at work — focused, calm, and shipping"
+              src="/me2.jpg" 
+              alt="Winning at Atria"
               fill
               sizes="(max-width: 768px) 100vw, 480px"
               className="object-cover"
-              style={{ objectPosition: "center 35%" }}
+              style={{ objectPosition: "center 50%" }}
               priority
             />
           </div>
@@ -56,14 +54,14 @@ export default function ProfessionalAbout() {
 
       <Separator />
 
-      {/* What I do (narrative + portrait) */}
+    
       <section className="mx-auto max-w-5xl px-6 py-8 bg-gradient-to-b from-zinc-950 via-zinc-950/60 to-transparent rounded-3xl">
         <div className="grid grid-cols-1 md:grid-cols-[0.9fr_1.1fr] gap-8 md:gap-12 items-start">
-          {/* Portrait / work shot */}
+          
           <div className="relative aspect-[3/4] overflow-hidden rounded-2xl ring-2 ring-teal-500/35 shadow-[0_0_36px_-12px_rgba(20,184,166,0.5)]">
             <Image
-              src="/work.jpg" // swap to your image
-              alt="Cris working on a system diagram and dashboards"
+              src="/flux.png" // swap to your image
+              alt="FLUX inauguration"
               fill
               sizes="(max-width: 768px) 100vw, 420px"
               className="object-cover"
@@ -76,15 +74,11 @@ export default function ProfessionalAbout() {
               What I Do
             </h2>
             <p className="mt-3 text-zinc-300 leading-relaxed">
-              I design and ship pragmatic systems—Next.js/Node backends with Postgres,
-              NoSQL serverless architectures on GCP/AWS, and ML services for segmentation
-              and classification. My stack emphasizes scalability, performance, and
-              fault-tolerant design, ensuring every feature delivers reliably as products grow.
+              I build things that feel grounded software and systems that make technology a little more human. My work lives where ML meets web development: data pipelines that learn from feedback, APIs that stay dependable under stress, and products that connect complex ideas to real-world use.
             </p>
             <p className="mt-3 text-zinc-300 leading-relaxed">
-              On the ML side, I work across data tooling, model training (SAM/YOLO/ResNet/EfficientNet),
-              and human-in-the-loop verification with versioned rollbacks. I prioritize measurable,
-              user-visible impact, combining engineering rigor with an iterative, outcome-driven mindset.
+             I enjoy the rhythm of building designing architectures that evolve, debugging edge cases that teach me something new, and finding simple answers in complicated systems. I believe good engineering isn’t about flashy features but about consistency, understanding, and a quiet kind of elegance.
+            Whether it’s a full-stack platform, a vision model, or a cloud function, my goal stays the same: ship something reliable, useful, and built with intention.
             </p>
           </div>
         </div>

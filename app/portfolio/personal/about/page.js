@@ -4,7 +4,7 @@ import Image from "next/image";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "About Me — Personal | Cris Grace",
+  title: "About Me | Cris Grace",
   description: "A warm, personal look at who I am beyond the work.",
 };
 

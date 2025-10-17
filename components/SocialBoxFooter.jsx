@@ -8,13 +8,16 @@ export default function SocialLinks() {
   const pathname = usePathname();
   const isPersonal = pathname?.startsWith("/portfolio/personal");
 
-  const personalGradient = `from-red-500 via-orange-500 via-yellow-500 via-green-500 via-cyan-500 via-blue-500 to-pink-500`;
-  const professionalGradient = `from-teal-400 via-cyan-400 via-sky-400 to-blue-500`;
+  // Combined gradient (personal then professional) so the border cycles through all colors
+  const combinedGradient =
+    'linear-gradient(90deg, #ef4444 0%, #f97316 12%, #eab308 24%, #22c55e 36%, #06b6d4 48%, #3b82f6 60%, #ec4899 72%, #2dd4bf 84%, #22d3ee 88%, #38bdf8 92%, #3b82f6 100%)';
 
   return (
     <div className={`inline-flex rounded-full p-[1px] relative overflow-visible mt-1`}>
-      <div className={`absolute inset-0 rounded-full bg-gradient-to-r ${personalGradient} animate-gradient-x transition-opacity duration-1000 ease-in-out ${isPersonal ? 'opacity-100' : 'opacity-0'}`} />
-      <div className={`absolute inset-0 rounded-full bg-gradient-to-r ${professionalGradient} animate-gradient-x transition-opacity duration-1000 ease-in-out ${isPersonal ? 'opacity-0' : 'opacity-100'}`} />
+      <div
+        className={`absolute inset-0 rounded-full overflow-hidden transition-all duration-1000 ease-in-out bg-[length:200%_100%] animate-gradient-x`}
+        style={{ backgroundImage: combinedGradient }}
+      />
       <div className="flex items-center gap-3 text-white text-xs 
                       rounded-full px-3 py-1.5 bg-zinc-900 relative z-10">
         

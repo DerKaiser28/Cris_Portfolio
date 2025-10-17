@@ -9,8 +9,8 @@ export default function PortfolioLayout({ children }) {
   const onPersonal = pathname?.startsWith("/portfolio/personal");
   const basePath = onPersonal ? "/portfolio/personal" : "/portfolio/professional";
   const items = onPersonal
-    ? [{ slug: "about", label: "About Me" }, { slug: "travels", label: "Travels" }, { slug: "experiences", label: "Experiences" }, { slug: "blog", label: "Blog" }]
-    : [{ slug: "about", label: "About Me" }, { slug: "skills", label: "Skills" }, { slug: "experience", label: "Experience" }, { slug: "projects", label: "Projects" }, { slug: "achievements", label: "Achievements" }];
+    ? [{ slug: "about", label: "About Me" }, { slug: "travels", label: "Travels" }, { slug: "blog", label: "Blog" }]
+    : [{ slug: "about", label: "About Me" }, { slug: "skills", label: "Skills" }, { slug: "experience", label: "Experiences" }, { slug: "projects", label: "Projects" }, { slug: "achievements", label: "Achievements" }];
 
   return (
     <div className="relative min-h-dvh bg-black overflow-x-hidden">
