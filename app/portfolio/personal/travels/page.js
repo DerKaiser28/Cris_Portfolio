@@ -22,7 +22,7 @@ const TRAVELS = [
     lived: true,
     description:
       "I was born, raised, and lived most of my life here in Bangalore!",
-    photos: ["/travel/bangalore/1.jpg", "/travel/bangalore/2.jpg"],
+    photos: ["/travel/bangalore/1.JPG", "/travel/bangalore/2.JPG"],
   },
   {
     slug: "vizag",

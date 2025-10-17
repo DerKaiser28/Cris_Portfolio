@@ -118,7 +118,7 @@ function Separator() {
 const hobbies = [
   {
     title: "Gaming",
-    image: "/gaming.jpg",
+    image: "/gaming.JPG",
     alt: "A quiet gaming setup—screen glow and evening light",
     desc: "I’m a huge gamer and lifelong collector of consoles from retro handhelds to modern systems. Gaming has shaped how I think about design, storytelling, and tech.",
     position: "center 50%",
@@ -144,7 +144,7 @@ const hobbies = [
   },
   {
     title: "American Football",
-    image: "/chiefs.jpg",
+    image: "/chiefs.JPG",
     alt: "American football — game-day lights and stadium energy",
     desc: "I’m a huge American football fan — the strategy, the energy, the teamwork. I’ve followed the Kansas City Chiefs for years, and nothing beats the rush of a good game day.",
     position: "center 40%",
