@@ -40,13 +40,13 @@ export default function RootLayout({ children }) {
           >
             {/* Mobile: only the line */}
             <span className="block md:hidden text-center w-full">
-              © {new Date().getFullYear()} Cris Grace • Built with Next.js & Tailwind CSS
+              © {new Date().getFullYear()} Cris Grace • Built with Next.js & Tailwind CSS • <span className="bg-gradient-to-r from-teal-300 via-cyan-300 to-sky-400 bg-clip-text text-transparent">Contact Me @ chrisgrace281@gmail.com</span>
             </span>
 
             {/* Desktop: line left, socials right */}
             <div className="hidden md:flex w-full items-center justify-between">
               <span>
-                © {new Date().getFullYear()} Cris Grace • Built with Next.js & Tailwind CSS
+                © {new Date().getFullYear()} Cris Grace • Built with Next.js & Tailwind CSS • <span className="bg-gradient-to-r from-teal-300 via-cyan-300 to-sky-400 bg-clip-text text-transparent">Contact Me @ chrisgrace281@gmail.com</span>
               </span>
               <SocialLinksFooter />
             </div>

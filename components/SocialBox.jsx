@@ -23,7 +23,7 @@ export default function SocialLinks() {
         
         {/* GitHub */}
         <a
-          href="https://github.com/"
+          href="https://github.com/DerKaiser28"
           target="_blank"
           rel="noopener noreferrer"
           className="relative group inline-flex items-center"
@@ -36,7 +36,7 @@ export default function SocialLinks() {
 
         {/* LinkedIn */}
         <a
-          href="https://linkedin.com/"
+          href="https://www.linkedin.com/in/cris-grace-8a0b44214/"
           target="_blank"
           rel="noopener noreferrer"
           className="relative group inline-flex items-center"
@@ -65,7 +65,7 @@ export default function SocialLinks() {
 
         {/* Instagram */}
         <a
-          href="https://instagram.com/"
+          href="https://www.instagram.com/therealcrisgrace/"
           target="_blank"
           rel="noopener noreferrer"
           className="relative group inline-flex items-center"
@@ -78,7 +78,7 @@ export default function SocialLinks() {
 
         {/* Steam */}
         <a
-          href="https://steamcommunity.com/"
+          href="https://steamcommunity.com/id/TimeStone/"
           target="_blank"
           rel="noopener noreferrer"
           className="relative group inline-flex items-center"

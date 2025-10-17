@@ -150,9 +150,13 @@ export default function ProfessionalAbout() {
           </p>
           <div className="mt-4 flex flex-wrap gap-3">
             <Button href="/resume.pdf">View Resume</Button>
-            <Button href="mailto:cris@example.com" variant="ghost">
-              Email Me
-            </Button>
+            <Button
+                href={`mailto:chrisgrace281@gmail.com?subject=${encodeURIComponent("Hello")}&body=${encodeURIComponent("Hi Cris")}`}
+                variant="ghost"
+              >
+                Email Me
+              </Button>
+
             <Button href="https://www.linkedin.com/in/" variant="ghost">
               LinkedIn
             </Button>
