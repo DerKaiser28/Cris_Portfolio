@@ -53,7 +53,7 @@ export default function PersonalAbout() {
           {/* Portrait */}
           <div className="relative aspect-[3/4] overflow-hidden rounded-2xl ring-2 ring-amber-400/40 shadow-[0_0_36px_-12px_rgba(251,191,36,0.5)]">
             <Image
-              src="/pc2.jpg"
+              src="/pics.JPG"
               alt="Cris smiling—soft, warm portrait"
               fill
               sizes="(max-width: 768px) 100vw, 420px"

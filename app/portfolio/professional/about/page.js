@@ -40,7 +40,7 @@ export default function ProfessionalAbout() {
           {/* Hero image with accent ring + glow */}
           <div className="relative aspect-[4/3] overflow-hidden rounded-2xl ring-2 ring-cyan-500/40 shadow-[0_0_40px_-10px_rgba(56,189,248,0.45)]">
             <Image
-              src="/me2.jpg" 
+              src="/mes.JPG" 
               alt="Winning at Atria"
               fill
               sizes="(max-width: 768px) 100vw, 480px"
