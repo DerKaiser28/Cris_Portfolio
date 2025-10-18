@@ -42,7 +42,7 @@ const EXPERIENCES = [
   },
   {
     org: "Mentor–Mentee Application — Christ (Deemed to be University)",
-    role: "Full-stack Developer",
+    role: "Project Lead, System Architect",
     period: "2024 - 2025",
     blurb:
       "Unified portal replacing paper workflows for students, mentors, and admins.",
