@@ -208,7 +208,7 @@ export default function RainbowNav({ items = [], basePath = "/portfolio/personal
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-controls="mobile-menu"
-            className="md:hidden mt-1 mb-[-25] ml-auto mr-5 flex flex-col justify-center items-center space-y-1.5"
+            className="md:hidden mt-10 ml-auto mr-5 flex flex-col justify-center items-center space-y-1.5"
           >
                 {/* three lines where each line stacks the two gradients and then the transforming line on top */}
                 <span className="relative block h-0.5 w-7">
